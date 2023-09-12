@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const port = 3000; // Puedes cambiar el puerto si lo deseas
 
+app.use(express.static('public'));
+
+// Middleware para analizar solicitudes con cuerpo JSON
+app.use(express.json());
+
 // Middleware para manejar solicitudes GET a la ruta raíz
 app.get('/', (req, res) => {
   res.send('¡Hola, mundo!');
